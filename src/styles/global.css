@@ -1,0 +1,48 @@
+/* 앱인토스 WebView 미니앱 기본 스타일 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 360px 모바일 최적화 */
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* 스크롤바 숨기기 (WebView) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 터치 영역 최소 44px 보장 */
+button,
+a,
+[role='button'] {
+  min-height: 44px;
+}
+
+/* 이미지 드래그 방지 */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}

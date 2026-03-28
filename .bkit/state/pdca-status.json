@@ -1,0 +1,333 @@
+{
+  "version": "3.0",
+  "lastUpdated": "2026-03-28T09:29:06.062Z",
+  "activeFeatures": [
+    "tomorrow-fortune",
+    "ui",
+    "toss",
+    "cards",
+    "ads",
+    "2tomorrow-fortune",
+    "tomorrow-fortune-2"
+  ],
+  "primaryFeature": "tomorrow-fortune",
+  "features": {
+    "tomorrow-fortune": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-21T02:05:00.856Z",
+        "lastUpdated": "2026-03-21T08:30:39.576Z"
+      },
+      "lastFile": "D:/toss/tomorrow-fortune/src/components/FortuneEnvelope.tsx"
+    },
+    "ui": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-21T02:05:11.760Z",
+        "lastUpdated": "2026-03-21T03:02:53.856Z"
+      },
+      "lastFile": "D:\\toss\\tomorrow-fortune\\src\\components\\ui\\badge.tsx"
+    },
+    "toss": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-21T02:05:23.194Z",
+        "lastUpdated": "2026-03-28T09:28:49.241Z"
+      },
+      "lastFile": "D:\\toss\\tomorrow-fortune-2\\src\\components\\toss\\TossLoginButton.tsx"
+    },
+    "cards": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-21T02:05:54.505Z",
+        "lastUpdated": "2026-03-28T09:28:23.263Z"
+      },
+      "lastFile": "D:\\toss\\tomorrow-fortune-2\\src\\components\\cards\\LockedFortuneCard.tsx"
+    },
+    "ads": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-21T08:13:03.571Z",
+        "lastUpdated": "2026-03-21T08:13:03.571Z"
+      },
+      "lastFile": "D:\\toss\\tomorrow-fortune\\src\\components\\ads\\BannerAd.tsx"
+    },
+    "2tomorrow-fortune": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-22T12:58:37.441Z",
+        "lastUpdated": "2026-03-22T12:58:37.441Z"
+      },
+      "lastFile": "D:\\toss\\2tomorrow-fortune\\granite.config.ts"
+    },
+    "tomorrow-fortune-2": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-28T09:27:41.706Z",
+        "lastUpdated": "2026-03-28T09:29:06.062Z"
+      },
+      "lastFile": "D:\\toss\\tomorrow-fortune-2\\src\\components\\MyPageTab.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-03-21T00:03:43.820Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-03-28T09:29:06.062Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-03-21T02:05:00.856Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:11.760Z",
+      "feature": "ui",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:20.599Z",
+      "feature": "ui",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:23.194Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:32.904Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:40.065Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:48.696Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:05:54.505Z",
+      "feature": "cards",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:06:00.911Z",
+      "feature": "cards",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:06:06.286Z",
+      "feature": "cards",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:06:11.758Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T02:06:40.840Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T03:02:53.856Z",
+      "feature": "ui",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T07:46:23.917Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:03.361Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:11.311Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:19.569Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:25.954Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:32.691Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:05:42.715Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:13:03.571Z",
+      "feature": "ads",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:13:45.009Z",
+      "feature": "cards",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:13:54.127Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:14:01.880Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-21T08:30:39.577Z",
+      "feature": "tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-22T12:58:37.441Z",
+      "feature": "2tomorrow-fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:27:41.706Z",
+      "feature": "tomorrow-fortune-2",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:28:08.476Z",
+      "feature": "tomorrow-fortune-2",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:28:16.468Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:28:23.263Z",
+      "feature": "cards",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:28:40.848Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:28:49.241Z",
+      "feature": "toss",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-28T09:29:06.062Z",
+      "feature": "tomorrow-fortune-2",
+      "phase": "do",
+      "action": "updated"
+    }
+  ],
+  "stateMachine": {
+    "defaultWorkflow": "default",
+    "activeWorkflows": {},
+    "totalTransitions": 0
+  },
+  "automation": {
+    "globalLevel": 2,
+    "trustScore": 40,
+    "pendingApprovals": 0,
+    "lastGateResult": null
+  },
+  "team": {
+    "enabled": true,
+    "stateFile": ".bkit/runtime/agent-state.json",
+    "eventsFile": ".bkit/runtime/agent-events.jsonl"
+  }
+}
