@@ -3,7 +3,7 @@
 ## 2026-03-24
 
 ### WebView 스타터킷 초기 구성
-- Vite + React 19 + TypeScript 기반 프로젝트 생성
+- Vite + React 18 + TypeScript 기반 프로젝트 생성
 - `@apps-in-toss/web-framework`, `@toss/tds-mobile`, `@toss/tds-mobile-ait` 설정
 - `TDSMobileAITProvider` 래핑, 상태 기반 라우팅 구현
 - HomePage, DetailPage 페이지 작성

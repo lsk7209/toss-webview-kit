@@ -1,24 +1,36 @@
-import { useCallback, useEffect, useState } from "react";
-import { getItem, setItem } from "@utils/storage";
+import { getItem, setItem } from '@utils/storage';
+import { useCallback, useEffect, useState } from 'react';
 
-/** SDK Storage를 React 상태와 연결하는 훅 */
-export function useStorage(key: string, defaultValue = "") {
-  const [value, setValue] = useState(defaultValue);
+/**
+ * SDK Storage를 React 상태와 연결하는 훅 (JSON 직렬화 지원)
+ *
+ * 사용 예시:
+ *   const { value, update } = useStorage('count', 0);
+ *   const { value, update } = useStorage<string[]>('tags', []);
+ *   const { value, update } = useStorage('name', '');  // string도 동일하게 사용
+ */
+export function useStorage<T>(key: string, defaultValue: T) {
+  const [value, setValue] = useState<T>(defaultValue);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getItem(key).then((stored) => {
       if (stored !== null) {
-        setValue(stored);
+        try {
+          setValue(JSON.parse(stored) as T);
+        } catch {
+          // 기존 순수 문자열 값 호환
+          setValue(stored as unknown as T);
+        }
       }
       setIsLoading(false);
     });
   }, [key]);
 
   const update = useCallback(
-    async (newValue: string) => {
+    async (newValue: T) => {
       setValue(newValue);
-      await setItem(key, newValue);
+      await setItem(key, JSON.stringify(newValue));
     },
     [key],
   );

@@ -1,7 +1,7 @@
 {
-  "name": "toss-webview-kit",
+  "name": "nyangtarot",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,10 +9,11 @@
     "preview": "vite preview",
     "lint": "npx @biomejs/biome check --write .",
     "format": "npx @biomejs/biome format --write .",
-    "type-check": "tsc -b --noEmit"
+    "type-check": "tsc -b --noEmit",
+    "verify": "node scripts/verify-build.cjs"
   },
   "dependencies": {
-    "@apps-in-toss/web-framework": "^2.0.9",
+    "@apps-in-toss/web-framework": "^2.4.6",
     "@emotion/react": "^11.14.0",
     "@toss/tds-mobile": "^2.3.0",
     "@toss/tds-mobile-ait": "^2.3.0",

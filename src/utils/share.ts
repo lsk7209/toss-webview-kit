@@ -1,14 +1,20 @@
-import { share } from "@apps-in-toss/web-framework";
+import { share } from '@apps-in-toss/web-framework';
 
-/**
- * 토스 앱 외부(카카오톡 등)로 공유하기
- * 공식 API: share({ message: string })
- */
-export async function shareMessage(message: string): Promise<boolean> {
+export async function shareMessage(message: string) {
   try {
     await share({ message });
     return true;
   } catch {
+    if (typeof navigator.share === 'function') {
+      await navigator.share({ text: message });
+      return true;
+    }
+
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(message);
+      return true;
+    }
+
     return false;
   }
 }

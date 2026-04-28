@@ -1,58 +1,36 @@
-# CLAUDE.md - 프로젝트 규칙
+# 앱인토스 미니앱 개발 규칙
 
-## 프로젝트 개요
+## 프로젝트 정보
+- 콘솔 국문 이름: 냥타로
+- 앱 ID: nyangtarot
+- 아이콘 URL: 미정
+- 스택: React + Vite + TDS, 프론트엔드 온리, localStorage/SDK Storage 병행
+- SDK: @apps-in-toss/web-framework 2.x
 
-앱인토스(Apps in Toss) WebView 미니앱 스타터킷. 토스 앱 내에서 동작하는 WebView 기반 미니앱을 빠르게 만들기 위한 보일러플레이트.
+## 절대 규칙
+- `granite.config.ts`의 `displayName`과 `index.html`의 `<title>`은 `냥타로`와 동일하게 유지
+- 자체 상단 헤더바와 뒤로가기 화살표는 구현하지 않기
+- `index.html` viewport의 `maximum-scale=1.0, user-scalable=no` 유지
+- `granite.config.ts`의 `icon`은 추후 접근 가능한 `https` URL로 교체
 
-## 기술 스택
+## UX 규칙
+- 모든 문구는 해요체 유지
+- 첫 진입 직후 전면광고 금지
+- 광고는 결과 종료 지점과 선택형 리워드에만 배치
+- 루트 화면에서만 종료 확인 다이얼로그 노출
 
-- **런타임**: React 19 + Vite
-- **언어**: TypeScript (strict 모드)
-- **빌드**: Granite (`granite.config.ts`) - `@apps-in-toss/web-framework`
-- **UI**: TDS Mobile (Web) - `@toss/tds-mobile` + `@toss/tds-mobile-ait`
-- **포맷팅/린팅**: Biome
-- **스타일**: CSS-in-JS (inline CSSProperties)
+## 광고 규칙
+- 홈/컬렉션: 배너
+- 결과 화면: 선택형 리워드
+- 결과 종료 후 홈 복귀: 세션당 전면광고 1회
+- 광고 실패 시 사용자 플로우를 막지 않고 즉시 폴백
 
-## 코딩 규칙
+## 데이터 저장 규칙
+- prefix: `nyangtarot.v1.*`
+- 민감정보 저장 금지
+- 브라우저 검증 환경에서는 localStorage 폴백 허용, Toss 실환경은 SDK Storage 우선
 
-- TypeScript strict 모드 필수
-- Biome 포맷팅: 2칸 들여쓰기, 세미콜론, 트레일링 콤마
-- 컴포넌트는 함수형 컴포넌트 + hooks 패턴
-- 파일명: 컴포넌트는 PascalCase, 유틸/훅은 camelCase
-- 경로 별칭: `@/*`, `@components/*`, `@pages/*`, `@hooks/*`, `@utils/*`
-
-## 파일 구조
-
-- `src/pages/` - 페이지 컴포넌트 (상태 기반 라우팅)
-- `src/components/` - 재사용 컴포넌트
-- `src/hooks/` - 커스텀 훅
-- `src/utils/` - 유틸리티 함수
-- `src/styles/` - 글로벌 CSS
-
-## 핵심 규칙
-
-- `TDSMobileAITProvider`로 앱 최상위 래핑 필수
-- Storage는 `@apps-in-toss/web-framework`의 `Storage` 사용 (AsyncStorage 금지)
-- 360px 모바일 전용 최적화
-- TDS 컴포넌트 우선 사용
-
-## 개발 명령어
-
-```bash
-npm run dev          # 개발 서버 (Vite)
-npm run build        # 프로덕션 빌드
-npm run lint         # Biome 린팅 + 자동 수정
-npm run format       # Biome 포맷팅
-npm run type-check   # TypeScript 타입 체크
-```
-
-## 중요 설정 파일
-
-- `granite.config.ts` - 앱인토스 앱 설정 (appName 필수)
-- `vite.config.ts` - Vite 빌드 + 경로 별칭
-- `biome.json` - 포맷팅/린팅 규칙
-- `tsconfig.app.json` - TypeScript 설정
-
-## 작업 로그
-
-- 의미 있는 작업 완료 시 `DEV_LOG.md`에 기록
+## 검증 규칙
+- 구현 후 `npm run lint`, `npm run type-check`, `npm run build`
+- 브라우저에서 홈/결과/컬렉션/뒤로가기/광고 폴백 시나리오를 실제 검증
+- 검증 결과는 `test-results/browser-report.json`에 저장

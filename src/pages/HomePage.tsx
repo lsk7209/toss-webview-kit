@@ -1,102 +1,153 @@
-import { Button } from "@toss/tds-mobile";
-import type { CSSProperties } from "react";
-import { Layout } from "@components/Layout";
-
-const SPACING = {
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-} as const;
-
-const styles = {
-  hero: {
-    paddingTop: SPACING.xl,
-    paddingBottom: SPACING.lg,
-  } satisfies CSSProperties,
-  heading: {
-    fontSize: 26,
-    fontWeight: 700,
-    lineHeight: "34px",
-    color: "#191f28",
-    margin: 0,
-  } satisfies CSSProperties,
-  description: {
-    fontSize: 16,
-    lineHeight: "24px",
-    color: "#8b95a1",
-    marginTop: SPACING.sm,
-  } satisfies CSSProperties,
-  divider: {
-    height: 1,
-    backgroundColor: "#e5e8eb",
-    margin: `${SPACING.md}px 0`,
-  } satisfies CSSProperties,
-  section: {
-    paddingTop: SPACING.md,
-  } satisfies CSSProperties,
-  sectionTitle: {
-    fontSize: 22,
-    fontWeight: 700,
-    lineHeight: "30px",
-    color: "#191f28",
-    marginBottom: SPACING.sm,
-  } satisfies CSSProperties,
-  sectionDesc: {
-    fontSize: 14,
-    lineHeight: "20px",
-    color: "#8b95a1",
-    marginBottom: SPACING.lg,
-  } satisfies CSSProperties,
-  buttonGap: {
-    height: SPACING.sm,
-  } satisfies CSSProperties,
-};
+import { FORTUNE_TOPICS, type FortuneTopicId } from '@/features/fortune/data';
+import type { SavedFortune, VisitStats } from '@/features/fortune/storage';
+import { Button } from '@toss/tds-mobile';
 
 interface HomePageProps {
-  onNavigate: (page: "detail", params?: Record<string, string>) => void;
+  latestSaved: SavedFortune | null;
+  savedCount: number;
+  stats: VisitStats;
+  onOpenCollection: () => void;
+  onOpenSavedSheet: () => void;
+  onPickFortune: (topicId: FortuneTopicId) => void;
 }
 
-export function HomePage({ onNavigate }: HomePageProps) {
+function StatCard({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
   return (
-    <Layout>
-      <div style={styles.hero}>
-        <h1 style={styles.heading}>환영합니다</h1>
-        <p style={styles.description}>
-          토스 앱 내에서 동작하는 미니앱을 빠르게 만들어 보세요.
+    <article
+      style={{
+        borderRadius: 24,
+        padding: '18px 16px',
+        background: '#ffffff',
+        border: '1px solid rgba(255, 138, 101, 0.16)',
+      }}
+    >
+      <span style={{ display: 'block', fontSize: 13, color: '#6b7684' }}>{label}</span>
+      <strong style={{ display: 'block', marginTop: 6, fontSize: 24, color: '#191f28' }}>
+        {value}
+      </strong>
+    </article>
+  );
+}
+
+export function HomePage({
+  latestSaved,
+  savedCount,
+  stats,
+  onOpenCollection,
+  onOpenSavedSheet,
+  onPickFortune,
+}: HomePageProps) {
+  return (
+    <>
+      <section
+        style={{
+          borderRadius: 32,
+          padding: 24,
+          background: 'linear-gradient(135deg, #fff5f0 0%, #ffe8d9 100%)',
+          border: '1px solid rgba(255, 138, 101, 0.24)',
+          boxShadow: '0 16px 36px rgba(255, 138, 101, 0.14)',
+        }}
+      >
+        <p style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.12em', color: '#ea580c' }}>
+          NYANG TAROT
         </p>
-      </div>
-
-      <div style={styles.divider} />
-
-      <div style={styles.section}>
-        <h2 style={styles.sectionTitle}>시작하기</h2>
-        <p style={styles.sectionDesc}>
-          아래 버튼을 눌러 상세 화면으로 이동해 보세요.
+        <h1 style={{ marginTop: 12, fontSize: 32, lineHeight: 1.2, color: '#191f28' }}>
+          참치가 오늘의 흐름을
+          <br />
+          고양이 카드로 읽어줘요
+        </h1>
+        <p style={{ marginTop: 14, color: '#6b7684', lineHeight: 1.65 }}>
+          첫 진입은 가볍게, 재방문은 꾸준하게 설계했어요. 결과를 본 뒤 저장하고, 필요할 때만 광고를
+          열어 흐름을 끊지 않게 만들었어요.
         </p>
+      </section>
 
-        <Button
-          color="primary"
-          variant="fill"
-          size="large"
-          display="full"
-          onClick={() => onNavigate("detail", { id: "1" })}
-        >
-          상세 화면으로 이동
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+        <StatCard label="연속 방문" value={`${stats.streakCount}일`} />
+        <StatCard label="뽑은 횟수" value={`${stats.totalFortunes}회`} />
+        <StatCard label="저장 결과" value={`${savedCount}개`} />
+      </section>
+
+      <section
+        style={{
+          borderRadius: 30,
+          padding: 20,
+          background: '#ffffff',
+          border: '1px solid #eceff3',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+        }}
+      >
+        <strong style={{ fontSize: 21, color: '#191f28' }}>지금 뭘 보고 싶어요?</strong>
+        <p style={{ color: '#6b7684', lineHeight: 1.6 }}>
+          한 번 뽑으면 바로 결과를 보고, 저장한 뒤 다시 돌아올 수 있어요.
+        </p>
+        {FORTUNE_TOPICS.map((topic) => (
+          <Button
+            key={topic.id}
+            color="primary"
+            display="full"
+            size="large"
+            variant="fill"
+            onClick={() => onPickFortune(topic.id)}
+          >
+            {topic.label}
+          </Button>
+        ))}
+      </section>
+
+      <section
+        style={{
+          borderRadius: 30,
+          padding: 20,
+          background: '#ffffff',
+          border: '1px solid #eceff3',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+        }}
+      >
+        <strong style={{ fontSize: 21, color: '#191f28' }}>자주 쓰게 만드는 장치</strong>
+        <p style={{ color: '#6b7684', lineHeight: 1.6 }}>
+          최근 결과를 다시 열고, 모아둔 카드 흐름을 한 번에 볼 수 있게 했어요.
+        </p>
+        <Button color="dark" display="full" size="large" variant="weak" onClick={onOpenSavedSheet}>
+          저장한 결과 다시 열기
         </Button>
-
-        <div style={styles.buttonGap} />
-
-        <Button
-          color="dark"
-          variant="weak"
-          size="large"
-          display="full"
-          onClick={() => onNavigate("detail", { id: "2" })}
-        >
-          다른 항목 보기
+        <Button color="dark" display="full" size="large" variant="weak" onClick={onOpenCollection}>
+          컬렉션으로 이동하기
         </Button>
-      </div>
-    </Layout>
+        {latestSaved ? (
+          <div
+            style={{
+              borderRadius: 20,
+              padding: 16,
+              background: '#fff7ed',
+              color: '#9a3412',
+            }}
+          >
+            최근 저장 결과: {latestSaved.catName} · {latestSaved.headline}
+          </div>
+        ) : (
+          <div
+            style={{
+              borderRadius: 20,
+              padding: 16,
+              background: '#f8fafc',
+              color: '#6b7684',
+            }}
+          >
+            아직 저장한 결과가 없어요.
+          </div>
+        )}
+      </section>
+    </>
   );
 }
